@@ -117,3 +117,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         alert('Sorry, there was an error sending your message. Please try again later.');
     }
 });
+
+
+

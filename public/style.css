@@ -963,27 +963,20 @@ span {
 }
 
 .contact-title {
-    text-align: center;
-    margin: 0 auto 70px;
-    padding-bottom: 15px;
-    font-size: 5rem;
-    font-weight: 600;
-    position: relative;
-    color: white;
-    text-shadow: 0 0 10px rgba(183, 75, 75, 0.3);
+   
+    margin: 50px auto;
+    display: block;
+    padding-bottom: 10px;
+    font-size: 50px;
+    font-weight: 500;
+    border-bottom: 5px solid #b74b4b;
+    width: fit-content;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease forwards;
 }
 
-.contact-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #b74b4b, transparent);
-    border-radius: 2px;
-}
+
 
 .contact-container {
     max-width: 1000px;
@@ -1097,52 +1090,82 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    width: auto;
-    padding: 18px 50px;
+    gap: 15px;
+    padding: 18px 45px;
     background: transparent;
     color: #b74b4b;
     border: 2px solid #b74b4b;
     border-radius: 50px;
     font-size: 1.8rem;
     font-weight: 600;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin: 30px auto 0;
     position: relative;
+    margin: 30px auto 0;
     overflow: hidden;
+    transition: all 0.4s ease;
 }
 
+/* Hiệu ứng shine */
 .submit-btn::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 300%;
-    height: 300%;
-    background: #b74b4b;
-    border-radius: 50%;
-    transition: all 0.6s ease;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s ease;
+}
+
+/* Hiệu ứng background */
+.submit-btn::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    transition: 0.5s ease;
     z-index: -1;
 }
 
-.submit-btn:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
+/* Hiệu ứng hover */
 .submit-btn:hover {
-    color: black;
+    color: #fff;
+    
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(183, 75, 75, 0.4);
+    box-shadow: 0 5px 20px rgba(183, 75, 75, 0.4);
 }
 
+.submit-btn:hover::before {
+    left: 125%;
+}
+
+.submit-btn:hover::after {
+    left: 0;
+}
+
+/* Hiệu ứng icon */
 .submit-btn i {
-    transition: 0.4s ease;
+    transition: 0.3s ease;
 }
 
 .submit-btn:hover i {
-    transform: translateX(8px);
+    transform: translateX(5px) scale(1.2);
+}
+
+/* Hiệu ứng active khi click */
+.submit-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 10px rgba(183, 75, 75, 0.4);
 }
 
 @keyframes pulseBackground {
